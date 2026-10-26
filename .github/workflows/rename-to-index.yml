@@ -1,0 +1,17 @@
+name: Rename shop file to index.html
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename file
+        run: |
+          git config user.name "rootsandreelsmusic"
+          git config user.email "rootsandreelsmusic@users.noreply.github.com"
+          git mv l-j-crafty-creations.html index.html
+          git commit -m "Rename l-j-crafty-creations.html to index.html"
+          git push
